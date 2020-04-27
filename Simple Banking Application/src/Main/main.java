@@ -1,5 +1,7 @@
 package Main;
 
+import java.util.Scanner;
+
 /// --- Main Class --- ///
 public class main {	
 	public static void main(String[] args) {
@@ -7,6 +9,7 @@ public class main {
 		
 		// Menu //
 		user.menu();
+		char choice = user.options();
 	}
 }
 
@@ -22,8 +25,36 @@ class bankAccount {
 		userID = cID;
 	}
 	
+	// -- Menu -- //
 	public void menu() {
 		System.out.println("Welcome " + userName + ".");
 		System.out.println("Your ID is " + userID);
+		System.out.println(); // Prints a blank line
+	}
+	
+	// -- Options -- //
+	public char options() {
+		// Display the available options //
+		System.out.println("A. Check Balance");
+		System.out.println("B. Deposit");
+		System.out.println("C. Withdraw");
+		System.out.println("D. Previous transaction");
+		System.out.println("E. Exit");
+		System.out.println("Enter an option:");
+		
+		// Defines the user input //
+		Scanner scan = new Scanner(System.in);
+		while (true) {
+			char user_in = scan.next().charAt(0);
+			
+			// Error check for invalid inputs //
+			String valid_options = "aAbBcCdDeE";
+			
+			if (valid_options.contains(String.valueOf(user_in))) {
+				return user_in;
+			} else {
+				System.out.println("Invalid input");
+			}
+		}
 	}
 }
