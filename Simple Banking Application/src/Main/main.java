@@ -9,13 +9,19 @@ public class main {
 		
 		// Menu //
 		user.menu();
-		char choice = user.options();
-		
-		// Options //
-		switch(choice) {
-		case 'a':
-		case 'A':
-			user.checkBalance();
+		while (true) {
+			char choice = user.options();
+			System.out.println(); // Blank space
+			// Options //
+			switch(choice) {
+			case 'a':
+			case 'A':
+				user.checkBalance();
+				System.out.println(); // Blank space
+			case 'b':
+			case 'B':
+				user.deposit();
+			}
 		}
 	}
 }
@@ -68,6 +74,15 @@ class bankAccount {
 	
 	// -- Check balance -- //
 	public void checkBalance() {
-		System.out.println("Balance = " + balance);
+		System.out.println("Balance = $" + balance);
+	}
+	
+	// -- Deposit -- //
+	public void deposit() {
+		System.out.println("Enter an amount to deposit:");
+		Scanner scan = new Scanner(System.in);
+		int amt = scan.nextInt();
+		balance = balance + amt;
+		System.out.println(); // Blank space
 	}
 }
