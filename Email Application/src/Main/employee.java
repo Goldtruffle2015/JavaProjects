@@ -11,11 +11,7 @@ public class employee {
 	}
 	
 	public void setDepartment(String dep) {
-		switch(dep) {
-			case "sales":
-			case "development":
-			case "accounting":
-				department = dep;
+		department = dep;
 		}
 	}
-}
+
