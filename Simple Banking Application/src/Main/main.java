@@ -10,6 +10,13 @@ public class main {
 		// Menu //
 		user.menu();
 		char choice = user.options();
+		
+		// Options //
+		switch(choice) {
+		case 'a':
+		case 'A':
+			user.checkBalance();
+		}
 	}
 }
 
@@ -17,6 +24,7 @@ public class main {
 class bankAccount {
 	private static String userName;
 	private static int userID;
+	private static int balance;
 
 	// -- Attributes -- //
 	
@@ -56,5 +64,10 @@ class bankAccount {
 				System.out.println("Invalid input");
 			}
 		}
+	}
+	
+	// -- Check balance -- //
+	public void checkBalance() {
+		System.out.println("Balance = " + balance);
 	}
 }
