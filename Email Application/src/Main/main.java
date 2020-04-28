@@ -15,8 +15,19 @@ public class main {
 		// Get the department //
 		arr.get(arr.size()-1).setDepartment(getDepartment());
 		
+		// Generate email address //
+		arr.get(arr.size()-1).generateEmail();
+		
 		// Generate random password //
 		arr.get(arr.size()-1).generateRandomPassword(16);
+		
+		// Set Mailbox Capacity //
+		arr.get(arr.size()-1).setMailboxCap(500);
+		
+		// Display information //
+		System.out.println(arr.get(arr.size()-1).getName());
+		System.out.println(arr.get(arr.size()-1).getEmail());
+		System.out.println(arr.get(arr.size()-1).getMailboxCap());
 	}
 	
 	public static String[] getName() {

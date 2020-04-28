@@ -7,7 +7,9 @@ public class employee {
 	private static String firstName;
 	private static String lastName;
 	private static String department;
+	private static String email;
 	private static String password;
+	private static int mailboxcap;
 	employee(String fName, String lName) {
 		firstName = fName;
 		lastName = lName;
@@ -17,10 +19,30 @@ public class employee {
 		return password;
 	}
 	
+	public String getName() {
+		return firstName + " " + lastName;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getMailboxCap() {
+		return Integer.toString(mailboxcap) + "Mb";
+	}
+	
 	// -- Setter -- //
 	public void setDepartment(String dep) {
 		department = dep;
 		}
+	
+	public void setPassword(String var) {
+		password = var;
+	}
+	
+	public void setMailboxCap(int var) {
+		mailboxcap = var;
+	}
 	
 	// -- More methods -- //
 	public void generateRandomPassword(int size) {
@@ -38,6 +60,17 @@ public class employee {
 		}
 		
 		password = sb.toString();
+	}
+	
+	public void generateEmail() {
+		switch (department) {
+			case "none":
+				email = firstName + "." + lastName + "@company.com";
+			case "sales":
+			case "development":
+			case "accounting":
+				email = firstName + "." + lastName + "@" + department + ".company.com";
+		}
 	}
 }
 
