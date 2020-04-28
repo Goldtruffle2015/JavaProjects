@@ -14,6 +14,9 @@ public class main {
 		
 		// Get the department //
 		arr.get(arr.size()-1).setDepartment(getDepartment());
+		
+		// Generate random password //
+		arr.get(arr.size()-1).generateRandomPassword(16);
 	}
 	
 	public static String[] getName() {
@@ -28,12 +31,14 @@ public class main {
 		Scanner scan = new Scanner(System.in);
 		String dep = scan.nextLine();
 		switch(dep) {
+			case "":
+				return "none";
 			case "sales":
 			case "development":
 			case "accounting":
 				return dep;
 			default:
-				System.out.println("Please choose sales, development, or accounting.");
+				System.out.println("Please choose sales, development, accounting, or leave blank.");
 				return getDepartment();
 		}
 	}
